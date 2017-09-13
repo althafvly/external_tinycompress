@@ -651,6 +651,7 @@ int compress_wait(struct compress *compress, int timeout_ms)
 	return oops(compress, EIO, "poll signalled unhandled event");
 }
 
+#ifdef USE_VENDOR_EXTN
 int compress_get_metadata(struct compress *compress,
 		struct snd_compr_metadata *mdata) {
 	int version;
@@ -683,3 +684,4 @@ int compress_set_metadata(struct compress *compress,
 	}
 	return 0;
 }
+#endif
